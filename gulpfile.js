@@ -21,11 +21,17 @@ gulp.task('js', function () {
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('js/min/')); //the destination folder
+
+    gulp.src('js/dev/ninja-forms-display.js')
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('js/min/')); //the destination folder
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('js/dev/ninja-forms-admin.js', ['js']);
+    gulp.watch('js/dev/ninja-forms-display.js', ['js']);
     gulp.watch('assets/js/dev/nf-upgrade-handler.js', ['js']);
 });
 
