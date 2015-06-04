@@ -16,7 +16,7 @@ function ninja_forms_display_response_message( $form_id ){
 		$ajax = 0;
 	}
 
-	if( $ajax == 0 AND ( is_object( $ninja_forms_processing ) AND !$ninja_forms_processing->get_all_errors() AND !$ninja_forms_processing->get_all_success_msgs() ) ){
+	if( !is_object( $ninja_forms_processing ) OR ( is_object( $ninja_forms_processing ) AND !$ninja_forms_processing->get_all_errors() AND !$ninja_forms_processing->get_all_success_msgs() ) ){
 		$display = 'display:none;';
 	}else{
 		$display = '';
